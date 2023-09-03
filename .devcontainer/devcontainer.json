@@ -1,0 +1,16 @@
+{
+  "name": "ij-docker-kubernetes-devcontainer-unstablewk",
+  "build": { "dockerfile": "Dockerfile" },
+  "privileged": true,
+  "forwardPorts": [
+    27017
+  ],
+  "postCreateCommand": "echo 'DevContainer setup completed.'",
+  "runArgs": ["--init"],
+  "remoteUser": "intellij",
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+    "source=${env:HOME}/.kube,target=/usr/local/share/kube-localhost,type=bind"
+  ]
+
+}
